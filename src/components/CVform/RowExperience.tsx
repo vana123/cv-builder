@@ -1,29 +1,30 @@
-import { IEducation } from "../../models/Icv";
+import { IExperiance } from "../../models/Icv";
 import '../../scss/components/Row.scss'
-import { TiMortarBoard, TiPen, TiTrash } from "react-icons/ti";
+import { TiPen, TiTrash } from "react-icons/ti";
+import { BsBuilding } from "react-icons/bs";
 
 type Props={
-    values: IEducation,
+    values: IExperiance,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
-export default function RowEducation({ values, onRemuve, onEdit }: Props) {
-    const { id, title, degree, grade, start, end, fieldOfStudy }=values
+export default function RowExperience({ values, onRemuve, onEdit }: Props) {
+    const { id, title, company, location, isworkingNow, start, end }=values
     return (
         <div className="CVDataBlok">
             <div className="CVDataBlok__icon">
-                <TiMortarBoard size={'2.3rem'} />
+                <BsBuilding size={'2.2rem'}/>
             </div>
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
                     {title||""}
                 </div>
-                <div className="CVDataBlok__row CVDataBlok__text" >
-                    {degree||""}•{fieldOfStudy||""}
+                <div className="CVDataBlok__row CVDataBlok__text">
+                    {`${company||""}•${start||""} - ${end||""}`}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text">
-                    •{grade||""}
+                    {location}
                 </div>
             </div>
             <div className="CVDataBlok__btnGrup">

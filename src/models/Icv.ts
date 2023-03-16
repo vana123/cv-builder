@@ -4,21 +4,23 @@ export interface Icv {
     img?: File,
     fullName?: string,
     jobIntention?: string,
-    informations?: IInformation[],
+    socials: ISocial[],
     about?: string,
-    experiance?: IExperiance[],
+    experiance: IExperiance[],
     education: IEducation[],
-    skils?: ISkils[]
+    skils: ISkil[]
 }
 
-export interface IInformation {
-    icon?: string,
-    title: string,
-    text: string,
+export interface ISocial {
+    id: number,
+    // icon?: string,
+    title?: string,
+    text?: string,
     href?: string,
 }
 
 export interface IExperiance {
+    id: number,
     title?: string,
     company?: NamedCurve,
     isworkingNow?: boolean,
@@ -38,7 +40,8 @@ export interface IEducation {
     grade?: string,
 }
 
-export interface ISkils {
-    title: string;
-    count: number; // 0-100%
+export interface ISkil {
+    id: number,
+    title?: string;
+    count?: number; // 0-100%
 }

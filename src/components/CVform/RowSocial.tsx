@@ -1,30 +1,25 @@
-import { IEducation } from "../../models/Icv";
+import { ISocial } from "../../models/Icv";
 import '../../scss/components/Row.scss'
-import { TiMortarBoard, TiPen, TiTrash } from "react-icons/ti";
+import { TiPen, TiTrash } from "react-icons/ti";
 
 type Props={
-    values: IEducation,
+    values: ISocial,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
-export default function RowEducation({ values, onRemuve, onEdit }: Props) {
-    const { id, title, degree, grade, start, end, fieldOfStudy }=values
+export default function RowSocial({ values, onRemuve, onEdit }: Props) {
+    const { id, title, href, text }=values
     return (
         <div className="CVDataBlok">
-            <div className="CVDataBlok__icon">
-                <TiMortarBoard size={'2.3rem'} />
-            </div>
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
                     {title||""}
                 </div>
-                <div className="CVDataBlok__row CVDataBlok__text" >
-                    {degree||""}•{fieldOfStudy||""}
-                </div>
                 <div className="CVDataBlok__row CVDataBlok__text">
-                    •{grade||""}
+                    {text||""}
                 </div>
+
             </div>
             <div className="CVDataBlok__btnGrup">
                 <button

@@ -7,6 +7,9 @@
 
 	&__icon {
 		width: 15%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	&__content {
 		width: 100%;

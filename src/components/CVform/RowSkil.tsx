@@ -1,29 +1,28 @@
-import { IEducation } from "../../models/Icv";
+import { ISkil } from "../../models/Icv";
 import '../../scss/components/Row.scss'
-import { TiMortarBoard, TiPen, TiTrash } from "react-icons/ti";
+import { TiPen, TiTrash } from "react-icons/ti";
 
 type Props={
-    values: IEducation,
+    values: ISkil,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
-export default function RowEducation({ values, onRemuve, onEdit }: Props) {
-    const { id, title, degree, grade, start, end, fieldOfStudy }=values
+export default function RowSkil({ values, onRemuve, onEdit }: Props) {
+    const { id, title, count }=values
     return (
         <div className="CVDataBlok">
-            <div className="CVDataBlok__icon">
-                <TiMortarBoard size={'2.3rem'} />
-            </div>
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
                     {title||""}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text" >
-                    {degree||""}•{fieldOfStudy||""}
-                </div>
-                <div className="CVDataBlok__row CVDataBlok__text">
-                    •{grade||""}
+                    <input
+                        type="range"
+                        min={1} max={100}
+                        value={count} 
+                        onChange={()=>{}}
+                    />
                 </div>
             </div>
             <div className="CVDataBlok__btnGrup">
