@@ -7,7 +7,7 @@ export interface Icv {
     informations?: IInformation[],
     about?: string,
     experiance?: IExperiance[],
-    Education?: IEducation[],
+    education: IEducation[],
     skils?: ISkils[]
 }
 
@@ -19,22 +19,23 @@ export interface IInformation {
 }
 
 export interface IExperiance {
-    title: string,
-    company: NamedCurve,
-    isworkingNow: boolean,
-    start: Date,
-    end: Date,
-    location: string,
-    Description: string,
+    title?: string,
+    company?: NamedCurve,
+    isworkingNow?: boolean,
+    start?: Date,
+    end?: Date,
+    location?: string,
+    Description?: string,
 }
 
 export interface IEducation {
-    title: string,
-    degree: string,
-    fieldOfStudy: string,
-    start: Date,
-    end: Date,
-    Grade: string,
+    id: number,
+    title?: string,
+    degree?: string,
+    fieldOfStudy?: string,
+    start?: Date,
+    end?: Date,
+    grade?: string,
 }
 
 export interface ISkils {

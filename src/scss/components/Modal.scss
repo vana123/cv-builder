@@ -1,0 +1,19 @@
+.overlay{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.519);
+    top: 0;right: 0;bottom: 0; left: 0;
+    z-index: 0;
+}
+
+.modal{
+    min-width: 40rem;
+    min-height: 20rem;
+    background-color: aliceblue;
+    border-radius: 2rem;
+    padding: 2rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 100;
+}
