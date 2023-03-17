@@ -1,15 +1,12 @@
-import {useState } from 'react';
-import '../scss/components/CVForm.scss'
-import { Icv, IEducation, IExperiance, ISkil, ISocial } from '../models/Icv';
-import RowEducation from './CVform/RowEducation';
-import EditEducation from './EditEducation';
-import EditExperiance from './EditExperiance';
-import RowExperience from './CVform/RowExperience';
-import EditSkil from './EditSkil';
-import RowSkil from './CVform/RowSkil';
-import EditSocial from './EditSocial';
-import RowSocial from './CVform/RowSocial';
-import useCVDataBlok from '../hooks/useCVDataBlock';
+import { useState } from 'react';
+import "../../scss/components/CVForm.scss"
+import { Icv, IEducation, IExperiance, ISkil, ISocial, ITag } from "../../models/Icv"
+import { RowTag, RowEducation, RowExperience, RowSkil, RowSocial } from '../../components/CVform/RowBlockDatas'
+import { EditEducation, EditExperiance, EditSkil, EditSocial, EditTag } from '../../components/CVform/modalForms'
+import useCVDataBlok from '../../hooks/useCVDataBlock';
+// import { CVForm } from '@/components/CVform/CVForm';
+
+
 export default function CVForm() {
     const [formData, setFormData]=useState<Icv>({
         id: 1,
@@ -25,11 +22,12 @@ export default function CVForm() {
         const { name, value }=event.target;
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
-    
-    const social = useCVDataBlok<ISocial>(EditSocial)
-    const education = useCVDataBlok<IEducation>(EditEducation)
-    const experiance = useCVDataBlok<IExperiance>(EditExperiance)
-    const skil = useCVDataBlok<ISkil>(EditSkil)
+
+    const social=useCVDataBlok<ISocial>(EditSocial)
+    const education=useCVDataBlok<IEducation>(EditEducation)
+    const experiance=useCVDataBlok<IExperiance>(EditExperiance)
+    const skil=useCVDataBlok<ISkil>(EditSkil)
+    const tag=useCVDataBlok<ITag>(EditTag)
 
     const submitHandler=(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -42,6 +40,7 @@ export default function CVForm() {
             {education.ModalData}
             {experiance.ModalData}
             {skil.ModalData}
+            {tag.ModalData}
             <form className="CVForm" onSubmit={submitHandler}>
                 <label>
                     Title CV:
@@ -113,6 +112,15 @@ export default function CVForm() {
                         values={{ ...item }}
                         onRemuve={skil.remuveData}
                         onEdit={skil.editData}
+                    />
+                ))}
+                <button type='button' onClick={tag.createData}>add tag</button>
+                {tag.Data.map((item) => (
+                    <RowTag
+                        key={item.id}
+                        values={{ ...item }}
+                        onRemuve={tag.remuveData}
+                        onEdit={tag.editData}
                     />
                 ))}
                 <button type='submit'>Save</button>

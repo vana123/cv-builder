@@ -1,6 +1,6 @@
-import { ISkil, ISocial } from "../models/Icv";
+import { ISkil, ISocial } from "../../../models/Icv";
 import { useState } from 'react';
-import { DataWithId } from "../hooks/useCVDataBlock";
+import { DataWithId } from "../../../hooks/useCVDataBlock";
 
 
 type Props={

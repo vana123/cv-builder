@@ -1,6 +1,6 @@
-import { IEducation } from "../models/Icv";
+import { IEducation } from "../../../models/Icv";
 import { useState } from 'react';
-import { DataWithId } from "../hooks/useCVDataBlock";
+import { DataWithId } from "../../../hooks/useCVDataBlock";
 
 type Props={
     defaultValue: DataWithId<IEducation>,

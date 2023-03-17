@@ -1,15 +1,15 @@
-import { ISocial } from "../../models/Icv";
-import '../../scss/components/Row.scss'
+import { ITag } from "../../../models/Icv";
+import '../../../scss/components/Row.scss'
 import { TiPen, TiTrash } from "react-icons/ti";
-import { DataWithId } from "../../hooks/useCVDataBlock";
+import { DataWithId } from "../../../hooks/useCVDataBlock";
 
 type Props={
-    values: DataWithId<ISocial>,
+    values: DataWithId<ITag>,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
-export default function RowSocial({ values, onRemuve, onEdit }: Props) {
+export default function RowTag({ values, onRemuve, onEdit }: Props) {
     const data =values.data
     const id = values.id
     return (
@@ -18,10 +18,6 @@ export default function RowSocial({ values, onRemuve, onEdit }: Props) {
                 <div className="CVDataBlok__row CVDataBlok__title">
                     {data?.title||""}
                 </div>
-                <div className="CVDataBlok__row CVDataBlok__text">
-                    {data?.text||""}
-                </div>
-
             </div>
             <div className="CVDataBlok__btnGrup">
                 <button

@@ -1,6 +1,6 @@
-import { IExperiance } from "../models/Icv";
+import { IExperiance } from "../../../models/Icv";
 import { useState } from 'react';
-import { DataWithId } from "../hooks/useCVDataBlock";
+import { DataWithId } from "../../../hooks/useCVDataBlock";
 type Props={
     defaultValue: DataWithId<IExperiance>,
     geterResult: (Data: IExperiance) => void

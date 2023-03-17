@@ -1,5 +1,5 @@
 import '../scss/pages/CreateCV.scss'
-import CVForm from '../components/CVForm';
+import CVForm from '../components/CVform/CVForm';
 export default function CreateCV() {
     return (
         <div className="container">

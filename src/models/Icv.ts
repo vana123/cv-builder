@@ -4,17 +4,30 @@ export interface Icv {
     img?: File,
     fullName?: string,
     jobIntention?: string,
+    phone?: string,
     socials: ISocial[],
+    address?: IAddress
     about?: string,
     experiance: IExperiance[],
     education: IEducation[],
-    skils: ISkil[]
+    skils?: ISkil[],
+    tag?: ITag[],
 }
 
 export interface ISocial {
     title?: string,
     text?: string,
     href?: string,
+}
+
+export interface IAddress {
+    country?: string,
+    city?: string,
+    street?: string,
+}
+
+export interface ITag {
+    title?: string,
 }
 
 export interface IExperiance {

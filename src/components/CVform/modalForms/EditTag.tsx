@@ -1,14 +1,13 @@
-import { ISkil } from "../models/Icv";
+import { ITag } from "../../../models/Icv";
 import { useState } from 'react';
-import { DataWithId } from "../hooks/useCVDataBlock";
+import { DataWithId } from "../../../hooks/useCVDataBlock";
 
 type Props={
-    defaultValue: DataWithId<ISkil>,
-    geterResult: (Data: ISkil) => void
+    defaultValue: DataWithId<ITag>,
+    geterResult: (Data: ITag) => void
 }
-export default function EditSkil({ defaultValue, geterResult }: Props) {
-    const [formData, setFormData]=useState<ISkil>(defaultValue.data||{})
-
+export default function EditTag({ defaultValue, geterResult }: Props) {
+    const [formData, setFormData]=useState<ITag>(defaultValue.data||{})
 
     const handleInputChange=(
         event: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>
@@ -25,24 +24,14 @@ export default function EditSkil({ defaultValue, geterResult }: Props) {
         <div className="EditEducation">
             <form onSubmit={submitHandler}>
                 <label>
-                    Skils:
+                    Tag name:
                     <input
                         type="text"
                         name="title"
-                        value={formData.title||''}
+                        value={formData.title||""}
                         onChange={handleInputChange}
                     />
                 </label>
-                <label>
-                    Count:
-                    <input
-                        type="number"
-                        name="count"
-                        value={formData.count|| 0}
-                        onChange={handleInputChange}
-                    />
-                </label>
-
                 <button type="submit">Save chenge</button>
             </form>
         </div>

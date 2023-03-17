@@ -1,30 +1,32 @@
-import { ISkil } from "../../models/Icv";
-import '../../scss/components/Row.scss'
+import { IExperiance } from "../../../models/Icv";
+import '../../../scss/components/Row.scss'
 import { TiPen, TiTrash } from "react-icons/ti";
-import { DataWithId } from "../../hooks/useCVDataBlock";
+import { BsBuilding } from "react-icons/bs";
+import { DataWithId } from "../../../hooks/useCVDataBlock";
 
 type Props={
-    values: DataWithId<ISkil>,
+    values: DataWithId<IExperiance>,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
-export default function RowSkil({ values, onRemuve, onEdit }: Props) {
+export default function RowExperience({ values, onRemuve, onEdit }: Props) {
     const data = values.data
     const id = values.id
     return (
         <div className="CVDataBlok">
+            <div className="CVDataBlok__icon">
+                <BsBuilding size={'2.2rem'}/>
+            </div>
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
                     {data?.title||""}
                 </div>
-                <div className="CVDataBlok__row CVDataBlok__text" >
-                    <input
-                        type="range"
-                        min={1} max={100}
-                        value={data?.count} 
-                        onChange={()=>{}}
-                    />
+                <div className="CVDataBlok__row CVDataBlok__text">
+                    {`${data?.company||""}•${data?.start||""} - ${data?.end||""}`}
+                </div>
+                <div className="CVDataBlok__row CVDataBlok__text">
+                    {data?.location}
                 </div>
             </div>
             <div className="CVDataBlok__btnGrup">
