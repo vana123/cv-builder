@@ -1,15 +1,18 @@
 import { IEducation } from "../../models/Icv";
 import '../../scss/components/Row.scss'
 import { TiMortarBoard, TiPen, TiTrash } from "react-icons/ti";
+import { DataWithId } from "../../hooks/useCVDataBlock";
 
 type Props={
-    values: IEducation,
+    values: DataWithId<IEducation>,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
 export default function RowEducation({ values, onRemuve, onEdit }: Props) {
-    const { id, title, degree, grade, start, end, fieldOfStudy }=values
+    // const { id, title, degree, grade, start, end, fieldOfStudy }=values.data
+    const data = values.data
+    const id = values.id
     return (
         <div className="CVDataBlok">
             <div className="CVDataBlok__icon">
@@ -17,13 +20,13 @@ export default function RowEducation({ values, onRemuve, onEdit }: Props) {
             </div>
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
-                    {title||""}
+                    {data?.title||""}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text" >
-                    {degree||""}•{fieldOfStudy||""}
+                    {data?.degree||""}•{data?.fieldOfStudy||""}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text">
-                    •{grade||""}
+                    •{data?.grade||""}
                 </div>
             </div>
             <div className="CVDataBlok__btnGrup">

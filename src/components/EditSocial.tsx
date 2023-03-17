@@ -1,13 +1,15 @@
 import { ISkil, ISocial } from "../models/Icv";
 import { useState } from 'react';
-import { TiSocialSkypeOutline } from "react-icons/ti";
+import { DataWithId } from "../hooks/useCVDataBlock";
+
 
 type Props={
-    defaultValue?: ISocial
-    geterResult: (educationFormData: ISocial) => void
+    defaultValue: DataWithId<ISocial>,
+    geterResult: (Data: ISocial) => void
 }
+
 export default function EditSocial({ defaultValue, geterResult }: Props) {
-    const [formData, setFormData]=useState(defaultValue||{ id: 9999 })
+    const [formData, setFormData]=useState<ISocial>(defaultValue.data||{})
 
     const handleInputChange=(
         event: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>
@@ -18,7 +20,9 @@ export default function EditSocial({ defaultValue, geterResult }: Props) {
 
     const submitHandler=(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        geterResult(formData)
+        geterResult(
+            formData
+        )
     }
     return (
         <div className="EditEducation">

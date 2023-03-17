@@ -12,15 +12,12 @@ export interface Icv {
 }
 
 export interface ISocial {
-    id: number,
-    // icon?: string,
     title?: string,
     text?: string,
     href?: string,
 }
 
 export interface IExperiance {
-    id: number,
     title?: string,
     company?: NamedCurve,
     isworkingNow?: boolean,
@@ -31,7 +28,6 @@ export interface IExperiance {
 }
 
 export interface IEducation {
-    id: number,
     title?: string,
     degree?: string,
     fieldOfStudy?: string,
@@ -41,7 +37,6 @@ export interface IEducation {
 }
 
 export interface ISkil {
-    id: number,
     title?: string;
     count?: number; // 0-100%
 }

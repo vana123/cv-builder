@@ -1,12 +1,13 @@
 import { IEducation } from "../models/Icv";
 import { useState } from 'react';
+import { DataWithId } from "../hooks/useCVDataBlock";
 
 type Props={
-    defaultValue?: IEducation
-    geterResult: (educationFormData: IEducation) => void
+    defaultValue: DataWithId<IEducation>,
+    geterResult: (Data: IEducation) => void
 }
 export default function EditEducation({ defaultValue, geterResult }: Props) {
-    const [formData, setFormData]=useState(defaultValue||{id:9999})
+    const [formData, setFormData]=useState<IEducation>(defaultValue.data||{})
     const handleInputChange=(
         event: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>
     ) => {

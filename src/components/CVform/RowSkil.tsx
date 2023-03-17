@@ -1,26 +1,28 @@
 import { ISkil } from "../../models/Icv";
 import '../../scss/components/Row.scss'
 import { TiPen, TiTrash } from "react-icons/ti";
+import { DataWithId } from "../../hooks/useCVDataBlock";
 
 type Props={
-    values: ISkil,
+    values: DataWithId<ISkil>,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
 export default function RowSkil({ values, onRemuve, onEdit }: Props) {
-    const { id, title, count }=values
+    const data = values.data
+    const id = values.id
     return (
         <div className="CVDataBlok">
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
-                    {title||""}
+                    {data?.title||""}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text" >
                     <input
                         type="range"
                         min={1} max={100}
-                        value={count} 
+                        value={data?.count} 
                         onChange={()=>{}}
                     />
                 </div>

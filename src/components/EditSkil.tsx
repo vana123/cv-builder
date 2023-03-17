@@ -1,12 +1,14 @@
 import { ISkil } from "../models/Icv";
 import { useState } from 'react';
+import { DataWithId } from "../hooks/useCVDataBlock";
 
 type Props={
-    defaultValue?: ISkil
-    geterResult: (educationFormData: ISkil) => void
+    defaultValue: DataWithId<ISkil>,
+    geterResult: (Data: ISkil) => void
 }
 export default function EditSkil({ defaultValue, geterResult }: Props) {
-    const [formData, setFormData]=useState(defaultValue||{ id: 9999 })
+    const [formData, setFormData]=useState<ISkil>(defaultValue.data||{})
+
 
     const handleInputChange=(
         event: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>

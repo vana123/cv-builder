@@ -2,15 +2,17 @@ import { IExperiance } from "../../models/Icv";
 import '../../scss/components/Row.scss'
 import { TiPen, TiTrash } from "react-icons/ti";
 import { BsBuilding } from "react-icons/bs";
+import { DataWithId } from "../../hooks/useCVDataBlock";
 
 type Props={
-    values: IExperiance,
+    values: DataWithId<IExperiance>,
     onRemuve: (id: number) => void,
     onEdit: (id: number) => void
 }
 
 export default function RowExperience({ values, onRemuve, onEdit }: Props) {
-    const { id, title, company, location, isworkingNow, start, end }=values
+    const data = values.data
+    const id = values.id
     return (
         <div className="CVDataBlok">
             <div className="CVDataBlok__icon">
@@ -18,13 +20,13 @@ export default function RowExperience({ values, onRemuve, onEdit }: Props) {
             </div>
             <div className="CVDataBlok__content">
                 <div className="CVDataBlok__row CVDataBlok__title">
-                    {title||""}
+                    {data?.title||""}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text">
-                    {`${company||""}•${start||""} - ${end||""}`}
+                    {`${data?.company||""}•${data?.start||""} - ${data?.end||""}`}
                 </div>
                 <div className="CVDataBlok__row CVDataBlok__text">
-                    {location}
+                    {data?.location}
                 </div>
             </div>
             <div className="CVDataBlok__btnGrup">
